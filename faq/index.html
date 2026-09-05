@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <!-- Enable responsiveness on mobile devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <link rel="icon" type="image/png" href="favicon32.png">
+
+    <title>Rust Language Cheat Sheet</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="font-opensans.css" />
+    <link rel="stylesheet" href="font-jetbrains.css" />
+    <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+
+    <div class="page">
+        <div class="page__content">
+
+            <div class="book-content">
+                <h1></h1>
+                <h1 id="faq">FAQ<sup id="target-faq" class="target"><a href="#faq">url</a></sup></h1>
+<hr />
+<h2 id="site">Site<sup id="target-site" class="target"><a href="#site">url</a></sup></h2>
+<h3 id="who-is-the-target-audience-why-don-t-you-explain">Who is the target audience? Why don't you explain ...?<sup id="target-who-is-the-target-audience-why-don-t-you-explain" class="target"><a href="#who-is-the-target-audience-why-don-t-you-explain">url</a></sup></h3>
+<p>At the risk of being overly specific, the <em>persona</em> the page is written for:</p>
+<ul>
+<li>3+ years non-Rust programming experience (Java, Python, C, ...)</li>
+<li>2+ weeks Rust experience (read a book or completed a tutorial)</li>
+<li>some familiarity with C-level concepts (memory, pointers)</li>
+</ul>
+<p>We of course hope to provide value even if someone doesn't fall into that bucket, but not at the expense of a streamlined experience for our target audience.</p>
+<h3 id="i-sent-a-message-earlier-why-didn-t-you-fix">I sent a message earlier, why didn't you fix ... ?<sup id="target-i-sent-a-message-earlier-why-didn-t-you-fix" class="target"><a href="#i-sent-a-message-earlier-why-didn-t-you-fix">url</a></sup></h3>
+<p>Some of the <em>wontfix</em> end up on Github with a brief comment why. The most common reason something didn't get fixed: The comment was too short or cryptic, and it was unclear what's actually broken.</p>
+<h3 id="why-all-the-html-graphics-why-don-t-you-use-images">Why all the HTML graphics? Why don't you use images?<sup id="target-why-all-the-html-graphics-why-don-t-you-use-images" class="target"><a href="#why-all-the-html-graphics-why-don-t-you-use-images">url</a></sup></h3>
+<p>Images are easier to create, but harder to version. Between PNGs and SVGs, HTML had the nicest balance.</p>
+<h3 id="i-created-x-can-you-link-it">I created X, can you link it?<sup id="target-i-created-x-can-you-link-it" class="target"><a href="#i-created-x-can-you-link-it">url</a></sup></h3>
+<p>Maybe. The current policy is not set in stone but is vaguely:</p>
+<ul>
+<li>To add items to an existing list the entry should be high quality and the list shouldn't grow too long.</li>
+<li>To add a specific link somewhere else it should be <em>the best of its kind</em> for that purpose.</li>
+</ul>
+<h3 id="why-the-pentagram">Why the pentagram?<sup id="target-why-the-pentagram" class="target"><a href="#why-the-pentagram">url</a></sup></h3>
+<p>The pentagram has a few desirable properties:</p>
+<ul>
+<li>easier and safer to execute compared to heptagrams and tridecagrams,</li>
+<li>faster to draw,</li>
+<li>has excellent documentation spanning several centuries,</li>
+<li>and, most importantly, it requires less blood and is therefore more ergonomic.</li>
+</ul>
+<p>In other words, the pentagram is the Rust of summoning circles.</p>
+<h3 id="are-you-a-satanist">Are you a Satanist?<sup id="target-are-you-a-satanist" class="target"><a href="#are-you-a-satanist">url</a></sup></h3>
+<p>All inquiries in this matter should be directed to your bathroom mirror on a moonless night.</p>
+<h3 id="can-you-remove-the-pentagram">Can you remove the pentagram?<sup id="target-can-you-remove-the-pentagram" class="target"><a href="#can-you-remove-the-pentagram">url</a></sup></h3>
+<p>The pentagram has spoken. The pentagram stays.</p>
+<h2 id="operations">Operations<sup id="target-operations" class="target"><a href="#operations">url</a></sup></h2>
+<h3 id="how-can-i-build-an-offline-copy">How can I build an offline copy?<sup id="target-how-can-i-build-an-offline-copy" class="target"><a href="#how-can-i-build-an-offline-copy">url</a></sup></h3>
+<p>On Linux &amp; macOS the following command should work. For Windows you have to adapt <code>$PWD</code> accordingly:</p>
+<pre><code>zola build --base-url=&quot;$PWD&#x2F;public&#x2F;index.html&quot; --output-dir=&quot;$PWD&#x2F;public&quot;
+</code></pre>
+<h3 id="how-can-i-see-what-the-deployed-version-is">How can I see what the deployed version is?<sup id="target-how-can-i-see-what-the-deployed-version-is" class="target"><a href="#how-can-i-see-what-the-deployed-version-is">url</a></sup></h3>
+<p>Click the date / subtitle line, it will give you the Git hash of the currently deployed version.</p>
+<h3 id="i-just-formatted-my-drive-how-do-i-run-the-deploy-script">I just formatted my drive, how do I run the deploy script?<sup id="target-i-just-formatted-my-drive-how-do-i-run-the-deploy-script" class="target"><a href="#i-just-formatted-my-drive-how-do-i-run-the-deploy-script">url</a></sup></h3>
+<p>On Windows:</p>
+<ul>
+<li>Install Git, add all Unix tools (esp. <code>bash</code>) to PATH</li>
+<li>In 'Environment Variables', bump Git PATH above Windows <code>C:\windows\system32</code> PATH</li>
+<li>Install Zola</li>
+<li>Install Node</li>
+<li><code>npm install</code></li>
+</ul>
+<h3 id="how-do-i-upgrade-prism">How do I upgrade Prism?<sup id="target-how-do-i-upgrade-prism" class="target"><a href="#how-do-i-upgrade-prism">url</a></sup></h3>
+<ul>
+<li>Visit <a href="https://prismjs.com/download.html">https://prismjs.com/download.html</a></li>
+<li>Select version: &quot;Minified&quot;</li>
+<li>Select theme: &quot;Default&quot;</li>
+<li>Select languages: &quot;Rust&quot; (and only Rust)</li>
+<li>Select plugins: &quot;Keep Markup&quot;, &quot;Highlight Keywords&quot; (experimental)</li>
+<li>Save files and replace the ones in <code>static</code></li>
+<li>In <code>git</code>, discard changes to CSS which now make the page look ugly (for example but not limited to: <code>font-style</code>, <code>background</code>, ...)</li>
+</ul>
+<h3 id="convert-unwilling-images-to-data-uris">Convert unwilling images to data URIs?<sup id="target-convert-unwilling-images-to-data-uris" class="target"><a href="#convert-unwilling-images-to-data-uris">url</a></sup></h3>
+<ul>
+<li>https://ezgif.com/image-to-datauri</li>
+<li>Add to <code>postprocess.js</code></li>
+</ul>
+<h2 id="legal">Legal<sup id="target-legal" class="target"><a href="#legal">url</a></sup></h2>
+<h3 id="am-i-allowed-to-translate-the-page">Am I allowed to translate the page?<sup id="target-am-i-allowed-to-translate-the-page" class="target"><a href="#am-i-allowed-to-translate-the-page">url</a></sup></h3>
+<p>Yes, just go ahead. You do not need to ask for extra permission and there are no <em>special</em> requirements. However, I would kindly ask you to <a href="/legal">respect what is written here</a>. The easiest way of doing that is</p>
+<ul>
+<li>Change the page footer to something like:<pre><code>Translated and hosted by [YOU], based on cheats.rs (Ralf Biedert)
+</code></pre>
+</li>
+<li>Remove my name from the &quot;Operator&quot; section.</li>
+</ul>
+<h3 id="what-does-interference-mean">What does 'interference' mean?<sup id="target-what-does-interference-mean" class="target"><a href="#what-does-interference-mean">url</a></sup></h3>
+<p>Basically this work is about providing high quality content in a particular format. We respect all rights and reasonable positions (IP or otherwise) of 3<sup>rd</sup> parties. That said, if you use IP laws or similar, in a way that could be perceived as threatening, to influence content or design of our or similar works you will lose 'good standing'.</p>
+<p>To be perfectly clear, if you are in good standing you can freely copy or re-host the work, or perform <a href="/legal#copyright-information">almost any</a> change you like on your own copy, and you'd really only lose that status if you 'went around trying to enforce your will on others'.</p>
+<div>&nbsp;</div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="prism.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+</body>
+
+</html>
