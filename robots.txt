@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://techlivewang.gitee.io/cheats.rs/sitemap.xml
